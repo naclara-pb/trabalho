@@ -1,0 +1,58 @@
+class Program
+{
+    static void Main()
+    {
+        // Solicitando altura e peso ao usuário
+        Console.Write("Digite sua altura em metros: ");
+        double altura = Convert.ToDouble(Console.ReadLine());
+
+        Console.Write("Digite seu peso em quilogramas: ");
+        double peso = Convert.ToDouble(Console.ReadLine());
+
+        // Calculando o IMC
+        double imc = CalcularIMC(peso, altura);
+
+        // Exibindo o resultado
+        Console.WriteLine($"Seu IMC é: {imc:F2}");
+
+        // Interpretando o resultado
+        InterpretarResultadoIMC(imc);
+
+        Console.ReadLine(); // Aguarda o usuário pressionar Enter para sair
+    }
+
+    // Método para calcular o IMC
+    static double CalcularIMC(double peso, double altura)
+    {
+        return peso / (altura * altura);
+    }
+
+    // Método para interpretar o IMC e imprimir uma mensagem correspondente
+    static void InterpretarResultadoIMC(double imc)
+    {
+        if (imc < 18.5)
+        {
+            Console.WriteLine("Você está abaixo do peso.");
+        }
+        else if (imc >= 18.5 && imc < 25)
+        {
+            Console.WriteLine("Você está com o peso normal.");
+        }
+        else if (imc >= 25 && imc < 30)
+        {
+            Console.WriteLine("Você está com sobrepeso.");
+        }
+        else if (imc >= 30 && imc < 35)
+        {
+            Console.WriteLine("Você está com obesidade grau I.");
+        }
+        else if (imc >= 35 && imc < 40)
+        {
+            Console.WriteLine("Você está com obesidade grau II (severa).");
+        }
+        else
+        {
+            Console.WriteLine("Você está com obesidade grau III (mórbida).");
+        }
+    }
+}
